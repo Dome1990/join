@@ -1,0 +1,8 @@
+.headlines{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  
+}
+.blue{
+    color:blue;
+}
