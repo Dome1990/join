@@ -19,25 +19,25 @@
     <h2>Add Task</h2>
     <h5>Learning Management System Project</h5>
 
-    <div>
+    <div class="lightBlue formDiv">
 
         <form onsubmit="">
 
             <table>
                 <tr>
                     <td>
-                        TITLE
+                        <span class="taskName">TITLE</span>
                     </td>
 
-                    <td>DUE DATE</td>
+                    <td><span class="taskName">DUE DATE</span></td>
                 </tr>
                 <tr>
                     <td><input placeholder="Title"></td>
                     <td><input type="date" value="2022-01-14"></td>
                 </tr>
                 <tr>
-                    <td>CATEGORY</td>
-                    <td>URGENCY</td>
+                    <td><span class="taskName">CATEGORY</span></td>
+                    <td><span class="taskName">URGENCY</span></td>
                 </tr>
                 <tr>
                     <td><select name="CATEGORY" id="">
@@ -46,23 +46,30 @@
                     </td>
                     <td>
                         <select name="URGENCY" id="">
-                            <option value="criticle">Criticle</option>
-                            <option value="high">High</option>
-                            <option value="middle">Middle</option>
                             <option value="low">Low</option>
+                            <option value="middle">Middle</option>
+                            <option value="high">High</option>
+                            <option value="criticle">Criticle</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>DESCRIPTION</td>
-                    <td>ASSIGNED TO</td>
+                    <td><span class="taskName">DESCRIPTION</span></td>
+                    <td><span class="taskName">ASSIGNED TO</span></td>
                 </tr>
                 <tr>
                     <td>
                         <textarea></textarea>
                     </td>
                     <td>
-                        persons
+                        <div class="userAssigned">
+                            <div><img class="userImg" src="img/dominic.JPG" alt=""></div>
+                            <div><img class="addUser" src="img/icon plus.png" alt=""></div>
+                        </div>
+                        <div class="createOrCancel">
+                            <button class="cancel">CANCEL</button>
+                            <button class="create">CREATE TASK</button>
+                        </div>
                     </td>
                 </tr>
 
