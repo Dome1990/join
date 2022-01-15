@@ -29,6 +29,7 @@ img{
     align-items: center;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
+    margin-bottom:16px;
 
 }
 .left__container{
@@ -39,7 +40,6 @@ img{
     border-bottom-left-radius: 50%;
 }
 .personalColor{
-    background-color: orange;
     width: 10px;
     height: 80px;
     border-top-left-radius: 16px;
@@ -54,6 +54,8 @@ img{
 }
 .details__container{
     max-width: 45%;
+    min-width: 45%;
+
 }
 .backlogDetail__container p{
     font-size: 20px;
