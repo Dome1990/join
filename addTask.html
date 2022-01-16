@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/addTask.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Add Task</title>
@@ -21,7 +22,7 @@
 
     <div class="lightBlue formDiv">
 
-        <form onsubmit="">
+        <form id="newTaskForm">
 
             <table>
                 <tr>
@@ -32,20 +33,24 @@
                     <td><span class="taskName">DUE DATE</span></td>
                 </tr>
                 <tr>
-                    <td><input placeholder="Title"></td>
-                    <td><input type="date" value="2022-01-14"></td>
+                    <td><input id="title" required placeholder="Title"></td>
+                    <td><input id="duedate" required type="date" value="2022-01-14"></td>
                 </tr>
                 <tr>
                     <td><span class="taskName">CATEGORY</span></td>
                     <td><span class="taskName">URGENCY</span></td>
                 </tr>
                 <tr>
-                    <td><select name="CATEGORY" id="">
-                            <option value="Management">Management</option>
+                    <td><select required name="CATEGORY" id="category">
+                        <option value=""></option>
+                        <option value="Management">Management</option>
+                        <option value="IT">IT</option>
+                        <option value="IT-Hardware">IT-Hardware</option>
                         </select>
                     </td>
                     <td>
-                        <select name="URGENCY" id="">
+                        <select name="URGENCY" id="urgency">
+                            <option value=""></option>
                             <option value="low">Low</option>
                             <option value="middle">Middle</option>
                             <option value="high">High</option>
@@ -59,16 +64,24 @@
                 </tr>
                 <tr>
                     <td>
-                        <textarea></textarea>
+                        <textarea required id="description"></textarea>
                     </td>
                     <td>
                         <div class="userAssigned">
-                            <div><img class="userImg" src="img/dominic.png" alt=""></div>
-                            <div><img class="addUser" src="img/icon plus.png" alt=""></div>
+                            <div class="userAssigned"  id="selectedUserImages">
+                                <!-- <div><img class="userImg" src="img/dominic.png" alt=""></div> -->
+                            </div>
+                            <div>
+                                <div class="assignedTo">
+                                    <img class="addUser" src="img/icon plus.png" onclick="showSelectionList()" alt="">
+                                    <ul id="selectUser" class="userList dNone">
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="createOrCancel">
                             <button class="cancel">CANCEL</button>
-                            <button class="create">CREATE TASK</button>
+                            <button class="create" onclick="addTask()">CREATE TASK</button>
                         </div>
                     </td>
                 </tr>

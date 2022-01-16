@@ -160,3 +160,35 @@ h5{
     background-color: rgb(30, 49, 144);
     color: white;
 }
+
+.userList{
+    background-color: white;
+    width: 150px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    position: absolute;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(230, 230, 230);
+    height: 10px;
+    overflow-y: auto;
+    height: 0;
+    transition: all ease-in-out 100ms;
+}
+
+.userList li {
+    cursor: pointer;
+}
+
+.userList li:hover{
+    color: rgb(30, 49, 144);
+}
+
+.assignedTo{
+    position: relative;
+}
+
+.dNone{
+    display: none;
+}
