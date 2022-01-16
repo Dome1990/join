@@ -178,7 +178,7 @@ function addTask() {
                 let userName = userjson[j].name;
                 if (name == userName) {
                     if (userjson[j].email) {
-                        img.push(userjson[j].email);
+                        email.push(userjson[j].email);
                     }
                 }
             }
@@ -193,13 +193,11 @@ function addTask() {
                 let userName = userjson[j].name;
                 if (name == userName) {
                     if (userjson[j].personalColor) {
-                        img.push(userjson[j].personalColor);
+                        personalColor.push(userjson[j].personalColor);
                     }
                 }
             }
         }
-
-
 
         let newTask = {
             'title': title.value,
@@ -213,11 +211,17 @@ function addTask() {
             'personalColor': personalColor
         }
         tasks.push(newTask);
+        saveTasks();
+        alert('Task has been created');
     }
 
     else {
         alert('Please assign your task to someone')
     }
+}
+
+function clearForm(){
+    document.getElementById('myForm').reset();
 }
 
 function fillDummyTasks() {

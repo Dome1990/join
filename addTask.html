@@ -10,19 +10,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="js/addTask.js"></script>
+    <script src="js/main.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Add Task</title>
 </head>
 
-<body>
+<body onload="loadTasks()">
 
     <h2>Add Task</h2>
     <h5>Learning Management System Project</h5>
 
     <div class="lightBlue formDiv">
 
-        <form id="newTaskForm">
+        <form id="myForm" onsubmit="addTask()">
+        <!-- <div class="divform"> -->
 
             <table>
                 <tr>
@@ -80,14 +82,15 @@
                             </div>
                         </div>
                         <div class="createOrCancel">
-                            <button class="cancel">CANCEL</button>
-                            <button class="create" onclick="addTask()">CREATE TASK</button>
+                            <button class="cancel" onclick="clearForm()">CANCEL</button>
+                            <!-- <button class="create" onclick="addTask()">CREATE TASK</button> -->
+                            <button class="create">CREATE TASK</button>
                         </div>
                     </td>
                 </tr>
 
             </table>
-
+        <!-- </div> -->
         </form>
 
     </div>
