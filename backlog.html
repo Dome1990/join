@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/backlog.css">
     <link rel="stylesheet" href="css/main.css">
-
+    <script src="js/addTask.js"> </script>
     <script src="js/backlog.js"> </script>
     <script src="js/main.js"></script>
     <title>Backlog</title>
 </head>
 
-<body onload="includeHTML(); showTasksInBacklog(); loadTasks(); filterTasksForBacklog();">
+<body onload="includeHTML(); showTasksInBacklog(tasks); loadTasks(); filterTasksForBacklog(tasks, status);">
     <div class="body">
         <!--NAVIGATION-->
         <div w3-include-html="template/navigation.html"></div>

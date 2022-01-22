@@ -1,3 +1,5 @@
+let status = "backlog";
+
 function showTasksInBacklog() {
     for (let i = 0; i < tasks.length; i++) {
         document.getElementById('tasks').innerHTML += `

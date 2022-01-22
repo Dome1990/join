@@ -8,7 +8,7 @@
     margin-right: 50px;
     display: flex;
     flex-direction:column;
-   
+   min-width: 70%;
 }
 p{
     font-size: 12px;
