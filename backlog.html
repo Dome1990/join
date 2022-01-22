@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/backlog.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <script src="js/addTask.js"> </script>
     <script src="js/main.js"></script>
     <title>Backlog</title>
 </head>
 
-<body onload="includeHTML(); fillDummyTasks()">
-    <!--NAVIGATION-->
-    <div w3-include-html="templates/navigation.html"></div>
-    <!--NAVIGATION END-->
-    <div class="backlog__container">
-        <h2>Backlog</h2>
-        <p class="blue">Learning Management System Project</p>
-        <div class="headlines darkblue">
-            <h3>ASSIGNED TO</h3>
-            <h3>CATEGORY</h3>
-            <h3></h3>
-            <h3>DETAILS</h3>
+<body onload="includeHTML(); fillDummyTasks(); loadTasks();">
+    <div class="body">
+        <!--NAVIGATION-->
+        <div w3-include-html="template/navigation.html"></div>
+        <!--NAVIGATION END-->
+        <div class="backlog__container">
+            <h2>Backlog</h2>
+            <p class="blue">Learning Management System Project</p>
+            <div class="headlines darkblue">
+                <h3>ASSIGNED TO</h3>
+                <h3>CATEGORY</h3>
+                <h3></h3>
+                <h3>DETAILS</h3>
+            </div>
+            <div id="tasks"></div>
+
         </div>
-        <div id="tasks"></div>
-        
     </div>
-
-
-
 </body>
 
 </html>
