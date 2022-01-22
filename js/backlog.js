@@ -1,4 +1,4 @@
-let status = "backlog";
+let backlogstatus = "backlog";
 
 function showTasksInBacklog() {
     for (let i = 0; i < tasks.length; i++) {
@@ -7,7 +7,7 @@ function showTasksInBacklog() {
             <div class="left__container">
                  <span  class="personalColor" style="background-color:${tasks[i]['personalColor']}"></span>
             <div class="img__container">
-                 <img src=${tasks[i]['img']} alt="">
+                 <img src=${tasks[i]['img']} alt="./img/user.png ">
             </div>
             <div class="assignedTo ">
                 <p id="name">${tasks[i]['assignedTo']}</p>
@@ -25,7 +25,9 @@ function showTasksInBacklog() {
 
 }
 
-function filterTasksForBacklog(tasks, status){
-    const backlog = tasks.filter(d => d['status'] === status);
+function filterTasksForBacklog(){
+    loadTasks();
+    console.log(tasks);
+    const backlog = tasks.filter(d => d.status === backlogstatus);
     console.log('arr1', backlog);
    }
