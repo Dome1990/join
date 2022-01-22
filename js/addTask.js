@@ -32,7 +32,7 @@ let userjson = [
     }
 ]
 
-dummytasks =
+tasks =
     [
         {
             'title': 'Do Tasks',
@@ -225,25 +225,25 @@ function clearForm(){
 }
 
 function fillDummyTasks() {
-    console.log("Dummytasks füllen");
-    for (let i = 0; i < dummytasks.length; i++) {
+    console.log("tasks füllen");
+    for (let i = 0; i < tasks.length; i++) {
         document.getElementById('tasks').innerHTML += `
         <div id="tasks" class="backlogDetail__container background__lightblue">
             <div class="left__container">
-                 <span  class="personalColor" style="background-color:${dummytasks[i]['personalColor']}"></span>
+                 <span  class="personalColor" style="background-color:${tasks[i]['personalColor']}"></span>
             <div class="img__container">
-                 <img src=${dummytasks[i]['img']} alt="">
+                 <img src=${tasks[i]['img']} alt="">
             </div>
             <div class="assignedTo ">
-                <p id="name">${dummytasks[i]['assignedTo']}</p>
-                <p id="email" class="blue">${dummytasks[i]['email']}</p>
+                <p id="name">${tasks[i]['assignedTo']}</p>
+                <p id="email" class="blue">${tasks[i]['email']}</p>
             </div>
         </div>
         <div class="category__container">
-            <p>${dummytasks[i]['category']}</p>
+            <p>${tasks[i]['category']}</p>
         </div>
         <div class="details__container">
-            <p>${dummytasks[i]['description']}</p>
+            <p>${tasks[i]['description']}</p>
          </div>
     </div>`;
     }
