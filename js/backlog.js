@@ -22,3 +22,8 @@ function showTasksInBacklog() {
     }
 
 }
+
+function filterTasksForBacklog(tasks, status){
+    const backlog = tasks.filter(d => d['status'] === "backlog");
+    console.log('arr1', arr1);
+   }

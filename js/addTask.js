@@ -43,7 +43,8 @@ tasks =
             'assignedTo': 'Dominic',
             'img': 'img/dominic.png',
             'email': 'dominic@dominic.de',
-            'personalColor': 'yellow'
+            'personalColor': 'yellow',
+            'status':'backlog'
         },
         {
             'title': 'Do more Tasks',
@@ -54,7 +55,8 @@ tasks =
             'assignedTo': 'Marvin',
             'img': 'img/marvin.png',
             'email': 'marvin@marvin.de',
-            'personalColor': 'red'
+            'personalColor': 'red',
+            'status':'backlog'
         },
         {
             'title': 'do some Tasks',
@@ -65,7 +67,8 @@ tasks =
             'assignedTo': 'Florian',
             'img': 'img/florian.png',
             'email': 'florian@florian.de',
-            'personalColor': 'green'
+            'personalColor': 'green',
+            'status':'backlog'
         }
 
     ]
