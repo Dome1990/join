@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="css/board.css">
+    <script src="js/main.js"></script>
     <title>Board</title>
 </head>
 
-<body>
+<body onload="includeHTML()">
+
+    <div w3-include-html="template/navigation.html"></div>
+
     <div class="board">
 
         <div class="board-field">
@@ -17,7 +21,7 @@
                 <h2>TO DO</h2>
             </div>
             <div class="board-backround">
-                
+
             </div>
         </div>
 
@@ -26,7 +30,7 @@
                 <h2>IN PROGRESS</h2>
             </div>
             <div class="board-backround">
-                
+
             </div>
         </div>
 
@@ -35,7 +39,7 @@
                 <h2>TESTING</h2>
             </div>
             <div class="board-backround">
-                
+
             </div>
         </div>
 
@@ -44,7 +48,7 @@
                 <h2>DONE</h2>
             </div>
             <div class="board-backround">
-                
+
             </div>
         </div>
 

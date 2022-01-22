@@ -224,8 +224,7 @@ function clearForm(){
     document.getElementById('myForm').reset();
 }
 
-function fillDummyTasks() {
-    console.log("tasks füllen");
+function showTasksInBacklog() {
     for (let i = 0; i < tasks.length; i++) {
         document.getElementById('tasks').innerHTML += `
         <div id="tasks" class="backlogDetail__container background__lightblue">

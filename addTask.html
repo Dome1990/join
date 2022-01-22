@@ -9,65 +9,88 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/addTask.js"></script>
+    <script src="js/main.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Add Task</title>
 </head>
 
-<body>
+<body onload="loadTasks()">
 
     <h2>Add Task</h2>
     <h5>Learning Management System Project</h5>
 
-    <div>
+    <div class="lightBlue formDiv">
 
-        <form onsubmit="">
+        <form id="myForm" onsubmit="addTask()">
+        <!-- <div class="divform"> -->
 
             <table>
                 <tr>
                     <td>
-                        TITLE
+                        <span class="taskName">TITLE</span>
                     </td>
 
-                    <td>DUE DATE</td>
+                    <td><span class="taskName">DUE DATE</span></td>
                 </tr>
                 <tr>
-                    <td><input placeholder="Title"></td>
-                    <td><input type="date" value="2022-01-14"></td>
+                    <td><input id="title" required placeholder="Title"></td>
+                    <td><input id="duedate" required type="date" value="2022-01-14"></td>
                 </tr>
                 <tr>
-                    <td>CATEGORY</td>
-                    <td>URGENCY</td>
+                    <td><span class="taskName">CATEGORY</span></td>
+                    <td><span class="taskName">URGENCY</span></td>
                 </tr>
                 <tr>
-                    <td><select name="CATEGORY" id="">
-                            <option value="Management">Management</option>
+                    <td><select required name="CATEGORY" id="category">
+                        <option value=""></option>
+                        <option value="Management">Management</option>
+                        <option value="IT">IT</option>
+                        <option value="IT-Hardware">IT-Hardware</option>
                         </select>
                     </td>
                     <td>
-                        <select name="URGENCY" id="">
-                            <option value="criticle">Criticle</option>
-                            <option value="high">High</option>
-                            <option value="middle">Middle</option>
+                        <select name="URGENCY" id="urgency">
+                            <option value=""></option>
                             <option value="low">Low</option>
+                            <option value="middle">Middle</option>
+                            <option value="high">High</option>
+                            <option value="criticle">Criticle</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>DESCRIPTION</td>
-                    <td>ASSIGNED TO</td>
+                    <td><span class="taskName">DESCRIPTION</span></td>
+                    <td><span class="taskName">ASSIGNED TO</span></td>
                 </tr>
                 <tr>
                     <td>
-                        <textarea></textarea>
+                        <textarea required id="description"></textarea>
                     </td>
                     <td>
-                        persons
+                        <div class="userAssigned">
+                            <div class="userAssigned"  id="selectedUserImages">
+                                <!-- <div><img class="userImg" src="img/dominic.png" alt=""></div> -->
+                            </div>
+                            <div>
+                                <div class="assignedTo">
+                                    <img class="addUser" src="img/icon plus.png" onclick="showSelectionList()" alt="">
+                                    <ul id="selectUser" class="userList dNone">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="createOrCancel">
+                            <button class="cancel" onclick="clearForm()">CANCEL</button>
+                            <!-- <button class="create" onclick="addTask()">CREATE TASK</button> -->
+                            <button class="create">CREATE TASK</button>
+                        </div>
                     </td>
                 </tr>
 
             </table>
-
+        <!-- </div> -->
         </form>
 
     </div>
