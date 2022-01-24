@@ -155,6 +155,9 @@ function addSelectedUser(name) {
 }
 
 function addTask() {
+    if (!tasks){
+        tasks = [];
+    }
     let title = document.getElementById('title');
     let dueDate = document.getElementById('duedate');
     let category = document.getElementById('category');
