@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/addTask.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="js/addTask.js"></script>
@@ -16,85 +17,89 @@
     <title>Add Task</title>
 </head>
 
-<body onload="loadTasks()">
+<body onload="loadTasks(); includeHTML()">
+    <div>
+        <div w3-include-html="template/navigation.html"></div>
+    </div>
+    <div class="contentDiv">
+        <h2>Add Task</h2>
+        <h5>Learning Management System Project</h5>
 
-    <h2>Add Task</h2>
-    <h5>Learning Management System Project</h5>
+        <div class="lightBlue formDiv">
 
-    <div class="lightBlue formDiv">
+            <form id="myForm" onsubmit="addTask()">
+                <!-- <div class="divform"> -->
 
-        <form id="myForm" onsubmit="addTask()">
-        <!-- <div class="divform"> -->
+                <table>
+                    <tr>
+                        <td>
+                            <span class="taskName">TITLE</span>
+                        </td>
 
-            <table>
-                <tr>
-                    <td>
-                        <span class="taskName">TITLE</span>
-                    </td>
-
-                    <td><span class="taskName">DUE DATE</span></td>
-                </tr>
-                <tr>
-                    <td><input id="title" required placeholder="Title"></td>
-                    <td><input id="duedate" required type="date" value="2022-01-14"></td>
-                </tr>
-                <tr>
-                    <td><span class="taskName">CATEGORY</span></td>
-                    <td><span class="taskName">URGENCY</span></td>
-                </tr>
-                <tr>
-                    <td><select required name="CATEGORY" id="category">
-                        <option value=""></option>
-                        <option value="Management">Management</option>
-                        <option value="IT">IT</option>
-                        <option value="IT-Hardware">IT-Hardware</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select name="URGENCY" id="urgency">
-                            <option value=""></option>
-                            <option value="low">Low</option>
-                            <option value="middle">Middle</option>
-                            <option value="high">High</option>
-                            <option value="criticle">Criticle</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="taskName">DESCRIPTION</span></td>
-                    <td><span class="taskName">ASSIGNED TO</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea required id="description"></textarea>
-                    </td>
-                    <td>
-                        <div class="userAssigned">
-                            <div class="userAssigned"  id="selectedUserImages">
-                                <!-- <div><img class="userImg" src="img/dominic.png" alt=""></div> -->
-                            </div>
-                            <div>
-                                <div class="assignedTo">
-                                    <img class="addUser" src="img/icon plus.png" onclick="showSelectionList()" alt="">
-                                    <ul id="selectUser" class="userList dNone">
-                                    </ul>
+                        <td><span class="taskName">DUE DATE</span></td>
+                    </tr>
+                    <tr>
+                        <td><input id="title" required placeholder="Title"></td>
+                        <td><input id="duedate" required type="date" value="2022-01-14"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="taskName">CATEGORY</span></td>
+                        <td><span class="taskName">URGENCY</span></td>
+                    </tr>
+                    <tr>
+                        <td><select required name="CATEGORY" id="category">
+                                <option value=""></option>
+                                <option value="Management">Management</option>
+                                <option value="IT">IT</option>
+                                <option value="IT-Hardware">IT-Hardware</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="URGENCY" id="urgency">
+                                <option value=""></option>
+                                <option value="low">Low</option>
+                                <option value="middle">Middle</option>
+                                <option value="high">High</option>
+                                <option value="criticle">Criticle</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="taskName">DESCRIPTION</span></td>
+                        <td><span class="taskName">ASSIGNED TO</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea required id="description"></textarea>
+                        </td>
+                        <td>
+                            <div class="userAssigned">
+                                <div class="userAssigned" id="selectedUserImages">
+                                    <!-- <div><img class="userImg" src="img/dominic.png" alt=""></div> -->
+                                </div>
+                                <div>
+                                    <div class="assignedTo">
+                                        <img class="addUser" src="img/icon plus.png" onclick="showSelectionList()"
+                                            alt="">
+                                        <ul id="selectUser" class="userList dNone">
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="createOrCancel">
-                            <button class="cancel" onclick="clearForm()">CANCEL</button>
-                            <!-- <button class="create" onclick="addTask()">CREATE TASK</button> -->
-                            <button class="create">CREATE TASK</button>
-                        </div>
-                    </td>
-                </tr>
+                            <div class="createOrCancel">
+                                <button class="cancel" onclick="clearForm()">CANCEL</button>
+                                <!-- <button class="create" onclick="addTask()">CREATE TASK</button> -->
+                                <button class="create">CREATE TASK</button>
+                            </div>
+                        </td>
+                    </tr>
 
-            </table>
-        <!-- </div> -->
-        </form>
+                </table>
+                <!-- </div> -->
+            </form>
 
+        </div>
     </div>
-
 </body>
 
 </html>
