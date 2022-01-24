@@ -129,7 +129,9 @@ function showSelectionList() {
  */
 function addSelectedUser(name) {
     if (!usersAssignedTo.includes(name)) {
+        let userfield = document.getElementById('checkUser');
         usersAssignedTo.push(name);
+        document.getElementById('checkUser').value += name;
     }
 
     let userImgList = document.getElementById('selectedUserImages');
