@@ -44,7 +44,7 @@ tasks =
             'img': 'img/dominic.png',
             'email': 'dominic@dominic.de',
             'personalColor': 'yellow',
-            'status':'backlog'
+            'status': 'backlog'
         },
         {
             'title': 'Do more Tasks',
@@ -56,7 +56,7 @@ tasks =
             'img': 'img/marvin.png',
             'email': 'marvin@marvin.de',
             'personalColor': 'red',
-            'status':'backlog'
+            'status': 'backlog'
         },
         {
             'title': 'do some Tasks',
@@ -68,12 +68,25 @@ tasks =
             'img': 'img/florian.png',
             'email': 'florian@florian.de',
             'personalColor': 'green',
-            'status':'backlog'
+            'status': 'backlog'
         }
 
     ]
 
 let usersAssignedTo = [];
+
+/**
+ * change the date of the due date inputfield to todays date
+ */
+function pushDate() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('duedate').value = today;
+}
 
 function showSelectionList() {
     let userAvailable = document.getElementById('selectUser');
@@ -211,10 +224,12 @@ function addTask() {
             'assignedTo': assignedTo,
             'img': img,
             'email': email,
-            'personalColor': personalColor
+            'personalColor': personalColor,
+            'status': 'backlog'
         }
         tasks.push(newTask);
         saveTasks();
+        loadTasks();
         alert('Task has been created');
     }
 
@@ -223,7 +238,7 @@ function addTask() {
     }
 }
 
-function clearForm(){
+function clearForm() {
     document.getElementById('myForm').reset();
 }
 
