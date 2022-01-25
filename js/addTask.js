@@ -137,12 +137,12 @@ function addSelectedUser(name) {
             if (name == userName) {
                 if (userjson[j].img) {
                     userImgList.innerHTML += `
-                <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}" alt=""></div>
+                <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}"  title="${name}" alt=""></div>
                 `;
                 }
                 else {
                     userImgList.innerHTML += `
-                    <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" alt=""></div>
+                    <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" title="${name}" alt=""></div>
                     `;
                 }
             }
