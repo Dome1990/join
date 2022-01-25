@@ -60,15 +60,11 @@ function numberOfAssignedPeople(backlog) {
 
 
 function updateStatusToBoard(id) {
-    console.log('unsere id:'+ id);
     document.getElementById('tasks').innerHTML = "";
     for (let i = 0; i < tasks.length; i++) {
-        console.log(tasks[i]['id'])
         if(tasks[i]['id'] === id){
             tasks[i]['status'] = 'todo';
-            console.log(i);
-        }
-       
+        } 
     }
     saveTasks();
     filterTasksForBacklog();
