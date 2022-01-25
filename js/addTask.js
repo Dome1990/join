@@ -32,7 +32,7 @@ let userjson = [
     }
 ]
 
-tasks =[];
+tasks = [];
 
 let usersAssignedTo = [];
 
@@ -58,14 +58,37 @@ function showSelectionList() {
      * fill userlist
      */
 
+    // userAvailable.innerHTML = '';
+    // userjson.forEach(name => {
+    //     userAvailable.innerHTML +=
+    //         `
+    //     <li onclick="addSelectedUser('${name.name}')">${name.name}</li>
+    //     `;
+    // });
+
+
     userAvailable.innerHTML = '';
     userjson.forEach(name => {
-        userAvailable.innerHTML +=
-            `
-        <li onclick="addSelectedUser('${name.name}')">${name.name}</li>
+        console.log(name['name'])
+        if (usersAssignedTo.includes(name['name'])) {
+            userAvailable.innerHTML +=
+                `
+            <div>
+            <input checked onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
+            <label for="${name.name}">${name.name}</label>
+        </div>
         `;
+        }
+        else {
+            userAvailable.innerHTML +=
+            `
+            <div>
+            <input onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
+            <label for="${name.name}">${name.name}</label>
+        </div>
+        `;
+        }
     });
-
 
     /**
      * show userlist
@@ -90,9 +113,9 @@ function showSelectionList() {
  */
 function addSelectedUser(name) {
     if (!usersAssignedTo.includes(name)) {
-        let userfield = document.getElementById('checkUser');
         usersAssignedTo.push(name);
         document.getElementById('checkUser').value += name;
+        showSelectionList();
     }
 
     let userImgList = document.getElementById('selectedUserImages');
@@ -118,7 +141,7 @@ function addSelectedUser(name) {
 }
 
 function addTask() {
-    if (!tasks){
+    if (!tasks) {
         tasks = [];
     }
     let title = document.getElementById('title');
@@ -192,7 +215,7 @@ function addTask() {
             'email': email,
             'personalColor': personalColor,
             'status': 'backlog',
-            'id' : new Date().getTime()
+            'id': new Date().getTime()
         }
         tasks.push(newTask);
         saveTasks();
@@ -206,6 +229,9 @@ function addTask() {
 }
 
 function clearForm() {
+    usersAssignedTo=[];
+    let userImgList = document.getElementById('selectedUserImages');
+    userImgList.innerHTML = '';
     document.getElementById('myForm').reset();
 }
 
