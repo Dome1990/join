@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
 }
 
@@ -11,9 +11,11 @@ td {
 form {
     width: 100%;
 }
-.divform{
+
+.divform {
     width: 100%;
 }
+
 table {
     width: 100%;
 }
@@ -85,7 +87,7 @@ select {
     box-sizing: border-box;
 }
 
-select:hover{
+select:hover {
     cursor: pointer;
 }
 
@@ -93,22 +95,22 @@ select:focus {
     outline: none;
 }
 
-.taskName{
+.taskName {
     color: rgb(30, 49, 144);
     font-weight: bold;
 }
 
-h2{
+h2 {
     margin-bottom: 0;
 }
 
-h5{
+h5 {
     color: rgb(30, 49, 144);
     font-weight: 600;
     margin-top: 0;
 }
 
-.contentDiv{
+.contentDiv {
     width: 100% !important;
     margin: 8px;
 }
@@ -125,12 +127,12 @@ h5{
     border-style: none;
     border-radius: 20px;
     padding: 12px;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.userImg{
+.userImg {
     height: 60px;
     width: 60px;
     object-fit: cover;
@@ -139,7 +141,7 @@ h5{
     margin-right: 12px;
 }
 
-.userAssigned{
+.userAssigned {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -147,18 +149,18 @@ h5{
     flex-direction: row-reverse;
 }
 
-.addUser{
+.addUser {
     cursor: pointer;
     margin-right: 12px;
 }
 
-.createOrCancel{
+.createOrCancel {
     display: flex;
     flex-direction: row;
     justify-content: end;
 }
 
-.createOrCancel button{
+.createOrCancel button {
     margin-right: 12px;
     padding: 12px;
     font-weight: bold;
@@ -167,17 +169,17 @@ h5{
     cursor: pointer;
 }
 
-.cancel{
- background-color: transparent;
- color: rgb(30, 49, 144);
+.cancel {
+    background-color: transparent;
+    color: rgb(30, 49, 144);
 }
 
-.create{
+.create {
     background-color: rgb(30, 49, 144);
     color: white;
 }
 
-.userList{
+.userList {
     background-color: white;
     width: 150px;
     padding-top: 6px;
@@ -211,20 +213,47 @@ h5{
     cursor: pointer;
 }
 
-.userList li:hover{
+.userList li:hover {
     color: rgb(30, 49, 144);
 }
 
-.assignedTo{
+.assignedTo {
     position: relative;
 }
 
-.dNone{
+.dNone {
     display: none;
 }
 
-.height0{
+.height0 {
     height: 0;
     opacity: 0;
     width: 0;
+    position: absolute;
+}
+
+.section {
+    width: 50%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+
+.tasksDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 750px) {
+    .tasksDiv {
+        flex-direction: column;
+    }
+
+    .section {
+        width: unset;
+    }
+    .createOrCancel{
+        align-items: center;
+        justify-content: center;
+        }
 }
