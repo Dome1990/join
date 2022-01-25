@@ -23,7 +23,7 @@ function showTasksInBacklog(backlog) {
     numberOfAssignedPeople(backlog);
     for (let i = 0; i < backlog.length; i++) {
         document.getElementById('tasks').innerHTML += `
-     <div onclick="updateStatusToBoard(${tasks[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue">
+     <div onclick="updateStatusToBoard(${backlog[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue">
          <div class="left__container">
               <span  class="personalColor" style="background-color:${backlog[i]['personalColor'][0]}"></span>
          <div class="img__container">
@@ -60,17 +60,16 @@ function numberOfAssignedPeople(backlog) {
 
 
 function updateStatusToBoard(id) {
-    let k = 0;
+    console.log('unsere id:'+ id);
     document.getElementById('tasks').innerHTML = "";
-        for (let j = 0; j < backlog.length; j++) {
-            if(backlog[j]['id'] == id){
-                for (let i = 0; i < tasks.length; i++) {
-                      k = tasks.indexOf([i]['id']);  
-                }
-                console.log(k);
-                tasks[k]['status'] = "toDo";
-            }   
-        }  
+    for (let i = 0; i < tasks.length; i++) {
+        console.log(tasks[i]['id'])
+        if(tasks[i]['id'] === id){
+            tasks[i]['status'] = 'todo';
+            console.log(i);
+        }
+       
+    }
     saveTasks();
     filterTasksForBacklog();
 
