@@ -30,6 +30,7 @@ input {
     box-sizing: border-box;
 }
 
+
 input:focus {
     outline: none;
 }
@@ -182,10 +183,24 @@ h5{
     border-style: solid;
     border-width: 1px;
     border-color: rgb(230, 230, 230);
-    height: 10px;
+    height: 100px;
     overflow-y: auto;
     height: 0;
     transition: all ease-in-out 100ms;
+}
+
+.userList input {
+    height: 20px;
+}
+
+.userList div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.userList label {
+    width: 100%;
 }
 
 .userList li {
