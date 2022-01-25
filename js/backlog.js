@@ -1,4 +1,7 @@
 let backlogstatus = "backlog";
+let assignedPeople =[];
+let backlog=[];
+let plus=[];
 
 function init(){
     filterTasksForBacklog();
@@ -8,14 +11,17 @@ function init(){
 
 function filterTasksForBacklog(){
     loadTasks();
-    const backlog = tasks.filter(d => d.status === backlogstatus);
-    console.log('gefiltert', backlog);
-    showTasksInBacklog(backlog);
+    if(window.localStorage.length!=0){
+         backlog = tasks.filter(d => d.status === backlogstatus);
+        showTasksInBacklog(backlog);
+    }    
+
    }
 
 
 
    function showTasksInBacklog(backlog) {
+    numberOfAssignedPeople(backlog);
  for (let i = 0; i < backlog.length; i++) {
      document.getElementById('tasks').innerHTML += `
      <div onclick="updateStatusToBoard(${i})" id="task${i}" class="backlogDetail__container background__lightblue">
@@ -24,8 +30,8 @@ function filterTasksForBacklog(){
          <div class="img__container">
               <img src=${backlog[i]['img'][0]} alt="./img/user.png ">
          </div>
-         <div class="assignedTo ">
-             <p id="name">${backlog[i]['assignedTo'][0]}</p>
+         <div class="assignedTo "title="${backlog[i]['assignedTo']}">
+             <p id="name" >${backlog[i]['assignedTo'][0]}  ${assignedPeople[i]}</p>
              <p id="email" class="blue">${backlog[i]['email'][0]}</p>
          </div>
      </div>
@@ -40,10 +46,27 @@ function filterTasksForBacklog(){
 
 }
 
+function numberOfAssignedPeople(backlog){
+    for (let i = 0; i < backlog.length; i++) {
+        if(backlog[i]['assignedTo'].length > 1){
+            assignedPeople[i] =  backlog[i]['assignedTo'].length - 1;
+            plus[i]= "+ ";
+            console.log(assignedPeople);
+        }else{
+            assignedPeople[i] = "";
+            plus[i]= "";
+        }
+        assignedPeople[i]=plus[i]+assignedPeople[i];
+    }
+    
+    return assignedPeople;   
+}
+
 
 function updateStatusToBoard(i){
     document.getElementById('tasks').innerHTML ="";
     tasks[i]['status']="toDo";
-    filterTasksForBacklog(tasks);
     saveTasks();
+    filterTasksForBacklog();
+    
 }
