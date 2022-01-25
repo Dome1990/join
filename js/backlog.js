@@ -27,7 +27,7 @@ function showTasksInBacklog(backlog) {
          <div class="left__container">
               <span  class="personalColor" style="background-color:${backlog[i]['personalColor'][0]}"></span>
          <div class="img__container">
-              <img src=${backlog[i]['img'][0]} alt="./img/user.png ">
+              <img class="images" src=${backlog[i]['img'][0]} alt="./img/user.png ">
          </div>
          <div class="assignedTo "title="${backlog[i]['assignedTo']}">
              <p id="name" >${backlog[i]['assignedTo'][0]}  ${assignedPeople[i]}</p>
