@@ -141,11 +141,15 @@ h5{
 
 .userAssigned{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: start;
+    flex-direction: row-reverse;
 }
 
 .addUser{
     cursor: pointer;
+    margin-right: 12px;
 }
 
 .createOrCancel{
