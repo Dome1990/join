@@ -81,7 +81,7 @@ function showSelectionList() {
         }
         else {
             userAvailable.innerHTML +=
-            `
+                `
             <div>
             <input onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
             <label for="${name.name}">${name.name}</label>
@@ -96,7 +96,7 @@ function showSelectionList() {
     if (userList.style.height == '0px' || !userListHeight) {
         userList.classList.toggle('dNone');
         setTimeout(() => {
-            userList.style.height = '100px';
+            userList.style.height = '110px';
         }, 10);
     }
     else {
@@ -117,6 +117,16 @@ function addSelectedUser(name) {
         document.getElementById('checkUser').value += name;
         showSelectionList();
     }
+    /**
+     * if the user is already selected -> remove
+     */
+    else {
+        const index = usersAssignedTo.indexOf(name);
+        if (index > -1) {
+            usersAssignedTo.splice(index, 1);
+        }
+        showSelectionList();
+    }
 
     let userImgList = document.getElementById('selectedUserImages');
     userImgList.innerHTML = '';
@@ -127,12 +137,12 @@ function addSelectedUser(name) {
             if (name == userName) {
                 if (userjson[j].img) {
                     userImgList.innerHTML += `
-                <div><img class="userImg" src="${userjson[j].img}" alt=""></div>
+                <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}" alt=""></div>
                 `;
                 }
                 else {
                     userImgList.innerHTML += `
-                    <div><img class="userImg" src="img/user.png" alt=""></div>
+                    <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" alt=""></div>
                     `;
                 }
             }
@@ -229,7 +239,7 @@ function addTask() {
 }
 
 function clearForm() {
-    usersAssignedTo=[];
+    usersAssignedTo = [];
     let userImgList = document.getElementById('selectedUserImages');
     userImgList.innerHTML = '';
     document.getElementById('myForm').reset();
