@@ -32,46 +32,7 @@ let userjson = [
     }
 ]
 
-dummytasks =
-    [
-        {
-            'title': 'Do Tasks',
-            'duedate': '02/07/2020',
-            'category': 'Management',
-            'urgency': 'high',
-            'description': '    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint accusantium obcaecati at?',
-            'assignedTo': 'Dominic',
-            'img': 'img/dominic.png',
-            'email': 'dominic@dominic.de',
-            'personalColor': 'yellow',
-            'status': 'backlog'
-        },
-        {
-            'title': 'Do more Tasks',
-            'duedate': '03/07/2020',
-            'category': 'Research',
-            'urgency': 'middle',
-            'description': '    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint accusantium obcaecati at?',
-            'assignedTo': 'Marvin',
-            'img': 'img/marvin.png',
-            'email': 'marvin@marvin.de',
-            'personalColor': 'red',
-            'status': 'backlog'
-        },
-        {
-            'title': 'do some Tasks',
-            'duedate': '05/02/2021',
-            'category': 'Marketing',
-            'urgency': 'low',
-            'description': '    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint accusantium obcaecati at?',
-            'assignedTo': 'Florian',
-            'img': 'img/florian.png',
-            'email': 'florian@florian.de',
-            'personalColor': 'green',
-            'status': 'backlog'
-        }
-
-    ]
+tasks =[];
 
 let usersAssignedTo = [];
 

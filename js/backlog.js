@@ -1,34 +1,10 @@
 let backlogstatus = "backlog";
 
 function init(){
-    showDummyTasksInBacklog();
     filterTasksForBacklog();
 }
 
-function showDummyTasksInBacklog() {
-    for (let i = 0; i < dummytasks.length; i++) {
-        document.getElementById('tasks').innerHTML += `
-        <div id="tasks" class="backlogDetail__container background__lightblue">
-            <div class="left__container">
-                 <span  class="personalColor" style="background-color:${dummytasks[i]['personalColor']}"></span>
-            <div class="img__container">
-                 <img src=${dummytasks[i]['img']} alt="./img/user.png ">
-            </div>
-            <div class="assignedTo ">
-                <p id="name">${dummytasks[i]['assignedTo']}</p>
-                <p id="email" class="blue">${dummytasks[i]['email']}</p>
-            </div>
-        </div>
-        <div class="category__container">
-            <p>${dummytasks[i]['category']}</p>
-        </div>
-        <div class="details__container">
-            <p>${dummytasks[i]['description']}</p>
-         </div>
-    </div>`;
-    }
 
-}
 
 function filterTasksForBacklog(){
     loadTasks();
@@ -40,7 +16,6 @@ function filterTasksForBacklog(){
 
 
    function showTasksInBacklog(backlog) {
-    console.log('backlog2', backlog);
  for (let i = 0; i < backlog.length; i++) {
      document.getElementById('tasks').innerHTML += `
      <div onclick="updateStatusToBoard(${i})" id="task${i}" class="backlogDetail__container background__lightblue">
@@ -68,9 +43,7 @@ function filterTasksForBacklog(){
 
 function updateStatusToBoard(i){
     document.getElementById('tasks').innerHTML ="";
-    showDummyTasksInBacklog();
     tasks[i]['status']="toDo";
-    console.log('update',tasks);
     filterTasksForBacklog(tasks);
     saveTasks();
 }
