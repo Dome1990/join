@@ -191,7 +191,8 @@ function addTask() {
             'img': img,
             'email': email,
             'personalColor': personalColor,
-            'status': 'backlog'
+            'status': 'backlog',
+            'id' : new Date().getTime()
         }
         tasks.push(newTask);
         saveTasks();
