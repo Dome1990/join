@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/mini_backend.js"></script>
     <script src="js/addTask.js"></script>
     <script src="js/main.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -28,69 +29,6 @@
         <div class="lightBlue formDiv">
 
             <form id="myForm" onsubmit="addTask()">
-                <!-- <table>
-                    <tr>
-                        <td>
-                            <span class="taskName">TITLE</span>
-                        </td>
-
-                        <td><span class="taskName">DUE DATE</span></td>
-                    </tr>
-                    <tr>
-                        <td><input id="title" required placeholder="Title"></td>
-                        <td><input id="duedate" required type="date" value="2022-01-14"></td>
-                    </tr>
-                    <tr>
-                        <td><span class="taskName">CATEGORY</span></td>
-                        <td><span class="taskName">URGENCY</span></td>
-                    </tr>
-                    <tr>
-                        <td><select required name="CATEGORY" id="category">
-                                <option value=""></option>
-                                <option value="Management">Management</option>
-                                <option value="IT">IT</option>
-                                <option value="IT-Hardware">IT-Hardware</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="URGENCY" id="urgency">
-                                <option value=""></option>
-                                <option value="low">Low</option>
-                                <option value="middle">Middle</option>
-                                <option value="high">High</option>
-                                <option value="criticle">Criticle</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="taskName">DESCRIPTION</span></td>
-                        <td><span class="taskName">ASSIGNED TO</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea required id="description"></textarea>
-                        </td>
-                        <td>
-                            <div class="userAssigned">
-                                <div class="userAssigned" id="selectedUserImages">
-                                </div>
-                                <div>
-                                    <div class="assignedTo">
-                                        <input class="height0" required id="checkUser" type="text">
-                                        <img class="addUser" src="img/icon plus.png" onclick="showSelectionList()"
-                                            alt="">
-                                        <div id="selectUser" class="userList dNone"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="createOrCancel">
-                                <button class="cancel" onclick="clearForm()">CANCEL</button>
-                                <button class="create">CREATE TASK</button>
-                            </div>
-                        </td>
-                    </tr>
-                </table> -->
-
 
                 <div class="tasksDiv">
                     <div class="section">

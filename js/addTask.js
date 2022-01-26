@@ -54,22 +54,8 @@ function showSelectionList() {
     let userList = document.getElementById('selectUser');
     let userListHeight = userList.style.height;
 
-    /**
-     * fill userlist
-     */
-
-    // userAvailable.innerHTML = '';
-    // userjson.forEach(name => {
-    //     userAvailable.innerHTML +=
-    //         `
-    //     <li onclick="addSelectedUser('${name.name}')">${name.name}</li>
-    //     `;
-    // });
-
-
     userAvailable.innerHTML = '';
     userjson.forEach(name => {
-        console.log(name['name'])
         if (usersAssignedTo.includes(name['name'])) {
             userAvailable.innerHTML +=
                 `
@@ -164,7 +150,6 @@ function addTask() {
     let email = [];
     let personalColor = [];
 
-    //console.log(title.value + dueDate.value + category.value + urgency.value + description.value);
     if (usersAssignedTo.length > 0) {
         /**
          * push img path of user in img array

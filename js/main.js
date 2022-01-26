@@ -26,13 +26,39 @@ function includeHTML() {
   }
 }
 
-function saveTasks() {
-    let tasksAsString = JSON.stringify(tasks);
-    localStorage.setItem('tasks', tasksAsString);
-  }
+
+/**
+ * ######################################################################
+ * smallestBackendEver
+ */
+setURL('http://gruppe-153.developerakademie.net/smallest_backend_ever');
+
+
+async function saveTasks() {
+  // users.push('John');
+  await backend.setItem('tasks', JSON.stringify(tasks));
+}
+
+async function loadTasks() {
+  await downloadFromServer();
+  tasks = JSON.parse(backend.getItem('tasks')) || [];
+}
+
+/**
+ * #######################################################################
+ */
+
+
+/**
+ * save and load functions for local storage
+ */
+// function saveTasks() {
+//     let tasksAsString = JSON.stringify(tasks);
+//     localStorage.setItem('tasks', tasksAsString);
+//   }
   
-  function loadTasks() {
-    let tasksAsString = localStorage.getItem('tasks');
-    tasks = JSON.parse(tasksAsString);
-  }
+//   function loadTasks() {
+//     let tasksAsString = localStorage.getItem('tasks');
+//     tasks = JSON.parse(tasksAsString);
+//   }
 
