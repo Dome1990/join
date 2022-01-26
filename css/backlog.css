@@ -29,6 +29,7 @@ p {
     width: 50px;
     object-fit: cover;
     margin-right: 16px;
+    margin-left:16px;
 }
 
 .backlogDetail__container {
@@ -57,20 +58,12 @@ p {
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     min-width: 270px;
+    min-height: 80px;
 }
 
-.color__container {
-    display: flex;
-    height: 100%;
-}
 
-.personalColor {
-    width: 10px;
-    height: 80px;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-    margin-right: 16px;
-}
+
+
 
 #name {
     margin-bottom: 0;
@@ -173,17 +166,14 @@ p {
 
     #mobile__left__container {
         display: flex;
-        margin-left: 40px;
         margin-top: 10px;
     }
 
-    .color__container {
-        display: none;
-    }
+ 
 
 }
 
-@media (max-width:575px) {
+@media (max-width:580px) {
     .body {
         flex-direction: column;
     }
