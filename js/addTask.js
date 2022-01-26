@@ -49,71 +49,143 @@ function pushDate() {
     document.getElementById('duedate').value = today;
 }
 
+/**
+ * will render and open a dropdown window with usernames and checkboxes for the assignment of the task
+ */
 function showSelectionList() {
     let userAvailable = document.getElementById('selectUser');
-    let userList = document.getElementById('selectUser');
-    let userListHeight = userList.style.height;
 
     userAvailable.innerHTML = '';
     userjson.forEach(name => {
-        if (usersAssignedTo.includes(name['name'])) {
-            userAvailable.innerHTML +=
-                `
-            <div>
-            <input checked onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
-            <label for="${name.name}">${name.name}</label>
-        </div>
-        `;
+        if (userAlreadySelected(name)) {
+            renderCheckedUser(name, userAvailable)
         }
         else {
-            userAvailable.innerHTML +=
-                `
-            <div>
-            <input onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
-            <label for="${name.name}">${name.name}</label>
-        </div>
-        `;
+            renderUnselected(name, userAvailable);
         }
     });
+    openAndCloseDropdownlist();
+}
 
-    /**
-     * show userlist
-     */
-    if (userList.style.height == '0px' || !userListHeight) {
-        userList.classList.toggle('dNone');
-        setTimeout(() => {
-            userList.style.height = '110px';
-        }, 10);
+
+
+function userAlreadySelected(name) {
+    return usersAssignedTo.includes(name['name']);
+}
+
+/**
+ * if the user is already selected for the task, the checkbox will be rendered selected
+ * @param {*} name 
+ * @param {*} userAvailable 
+ */
+function renderCheckedUser(name, userAvailable) {
+    userAvailable.innerHTML +=
+        `
+<div>
+<input checked onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
+<label for="${name.name}">${name.name}</label>
+</div>
+`;
+}
+
+/**
+ * if the user is not selected for the task, the checkbox will be rendered unselected
+ * @param {*} name 
+ * @param {*} userAvailable 
+ */
+
+function renderUnselected(name, userAvailable) {
+    userAvailable.innerHTML +=
+        `
+<div>
+<input onchange="addSelectedUser('${name.name}')" type="checkbox" id="${name.name}" name="${name.name}">
+<label for="${name.name}">${name.name}</label>
+</div>
+`;
+}
+
+
+/**
+ * show userlist for assignment
+ */
+function openAndCloseDropdownlist() {
+    let userList = document.getElementById('selectUser');
+    let userListHeight = userList.style.height;
+
+    if (userlistHeight0(userListHeight, userList)) {
+        openUserlist(userList);
     }
     else {
-        userList.style.height = '0';
-        setTimeout(() => {
-            userList.classList.toggle('dNone');
-        }, 100);
+        hideUserlist(userList);
     }
 }
 
 /**
- * will push an User to the usersAssignedTo array and adds an image of the user to the HTML
+ * 
+ * @param {*} userListHeight 
+ * @param {*} userList 
+ * @returns if the userlist hight is 0
+ */
+function userlistHeight0(userListHeight, userList) {
+    return userList.style.height == '0px' || !userListHeight;
+}
+
+/**
+ * will give the userlist a hight of 110px
+ * @param {*} userList 
+ */
+function openUserlist(userList) {
+    userList.classList.toggle('dNone');
+    setTimeout(() => {
+        userList.style.height = '110px';
+    }, 10);
+}
+
+function hideUserlist(userList) {
+    userList.style.height = '0';
+    setTimeout(() => {
+        userList.classList.toggle('dNone');
+    }, 100);
+}
+
+
+/**
+ * will push an User to the usersAssignedTo array and render an image of the user in the HTML
  * @param {string} name the name of the selected user
  */
 function addSelectedUser(name) {
-    if (!usersAssignedTo.includes(name)) {
-        usersAssignedTo.push(name);
-        document.getElementById('checkUser').value += name;
-        showSelectionList();
+    if (notSelected(name)) {
+        selectUser(name);
     }
-    /**
-     * if the user is already selected -> remove
-     */
     else {
-        const index = usersAssignedTo.indexOf(name);
-        if (index > -1) {
-            usersAssignedTo.splice(index, 1);
-        }
-        showSelectionList();
+        removeUser(name);
     }
+renderUserImages();
+}
 
+function notSelected(name) {
+    return !usersAssignedTo.includes(name)
+}
+
+function selectUser(name) {
+    usersAssignedTo.push(name);
+    document.getElementById('checkUser').value += name;
+    showSelectionList();
+}
+/**
+ * if the user is already selected -> remove
+ */
+function removeUser(name) {
+    const index = usersAssignedTo.indexOf(name);
+    if (index > -1) {
+        usersAssignedTo.splice(index, 1);
+    }
+    showSelectionList();
+}
+
+
+
+function renderUserImages(){
     let userImgList = document.getElementById('selectedUserImages');
     userImgList.innerHTML = '';
     for (let i = 0; i < usersAssignedTo.length; i++) {
@@ -135,6 +207,9 @@ function addSelectedUser(name) {
         }
     }
 }
+
+
+
 
 function addTask() {
     if (!tasks) {
@@ -228,5 +303,6 @@ function clearForm() {
     let userImgList = document.getElementById('selectedUserImages');
     userImgList.innerHTML = '';
     document.getElementById('myForm').reset();
+    pushDate();
 }
 
