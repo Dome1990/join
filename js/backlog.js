@@ -24,11 +24,14 @@ function showTasksInBacklog(backlog) {
     for (let i = 0; i < backlog.length; i++) {
         document.getElementById('tasks').innerHTML += `
      <div onclick="updateStatusToBoard(${backlog[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue">
-         <div class="left__container">
-              <span  class="personalColor" style="background-color:${backlog[i]['personalColor'][0]}"></span>
-         <div class="img__container">
-              <img class="images" src=${backlog[i]['img'][0]} alt="./img/user.png ">
-         </div>
+         <div id="mobile__left__container">
+        <div class="left__container">
+            <div class="color__container">
+                <span  class="personalColor" style="background-color:${backlog[i]['personalColor'][0]}"></span>
+            </div>
+             <div class="img__container">
+                <img class="images" src=${backlog[i]['img'][0]} alt="./img/user.png ">
+             </div>
          <div class="assignedTo "title="${backlog[i]['assignedTo']}">
              <p id="name" >${backlog[i]['assignedTo'][0]}  ${assignedPeople[i]}</p>
              <p id="email" class="blue">${backlog[i]['email'][0]}</p>
@@ -36,6 +39,7 @@ function showTasksInBacklog(backlog) {
      </div>
      <div class="category__container">
          <p>${backlog[i]['category']}</p>
+     </div>
      </div>
      <div class="details__container">
          <p>${backlog[i]['description']}</p>

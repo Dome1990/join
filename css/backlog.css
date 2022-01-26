@@ -4,11 +4,11 @@
 .backlog__container{
     margin:0;
     padding:0;
-    margin-left:50px;
-    margin-right: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
-    flex-direction:column;
-   min-width: 70%;
+    flex-direction: column;
+    min-width: 75%;
 }
 p{
     font-size: 12px;
@@ -30,20 +30,29 @@ p{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-radius: 16px;
     margin-bottom:16px;
 
 }
 .backlogDetail__container:hover{
     cursor: pointer;
 }
+#mobile__left__container{
+    display: flex;
+    min-width: 45%;
+    justify-content: space-between;
+    margin-right: 50px;
+}
 .left__container{
     display: flex;
-    justify-content: center;
     align-items: center;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
+    min-width: 270px;
+}
+.color__container{
+    display: flex;
+    height: 100%;
 }
 .personalColor{
     width: 10px;
@@ -58,6 +67,12 @@ p{
 #email{
     margin-top:0;
 }
+.category__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+}
 .details__container{
     max-width: 45%;
     min-width: 45%;
@@ -65,4 +80,77 @@ p{
 }
 .backlogDetail__container p{
     font-size: 20px;
+    overflow:hidden;
+}
+
+@media (max-width:1100px){
+    #email{
+        display: none;
+    }
+    #mobile__left__container{
+        min-width: 220px;
+    }
+    .left__container{
+        min-width: 220px;
+    }
+    .category__container{
+        min-width: 110px;
+    }
+}
+@media (max-width:1000px){
+
+    #mobile__left__container{
+        min-width: 190px;
+    }
+    .left__container{
+        min-width: 220px;
+    }
+}
+
+@media (max-width:900px){
+
+    .category__container{
+        display: none;
+    }
+    #category{
+        display: none;
+    }
+    .details__container{
+        min-width: 60%;
+    
+    }
+}
+@media (max-width:750px){
+    .headlines{
+        display: none;
+    }
+    .category__container{
+        align-items: center;
+    justify-content: right;
+    margin-left: 20%;
+    display: flex;
+    }
+    .backlog__container{
+        min-width: 70%;
+    }
+    .backlogDetail__container{
+         flex-direction: column;
+         align-items: initial;
+    }
+    .details__container{
+        min-width: 90%;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    }
+    #mobile__left__container{
+        display: flex;
+    }
+
+}
+@media (max-width:575px){
+    .body{
+        flex-direction: column;
+    }
 }
