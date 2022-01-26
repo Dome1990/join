@@ -9,8 +9,8 @@ function init() {
 
 
 
-function filterTasksForBacklog() {
-    loadTasks();
+async function filterTasksForBacklog() {
+    await loadTasks();
     if (window.localStorage.length != 0) {
         backlog = tasks.filter(d => d.status === backlogstatus);
         showTasksInBacklog(backlog);
