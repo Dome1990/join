@@ -9,12 +9,13 @@ body {
 
 .board-field {
     text-align: center;
+    margin: 6px;
 }
 
 .board-backround {
     background-color: rgba(244, 243, 251, 255);
     width: 300px;
-    height: 90vh;
+    min-height: 85vh;
     padding-top: 10px;
 }
 
