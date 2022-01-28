@@ -176,7 +176,7 @@ function selectUser(name) {
     showSelectionList();
 }
 /**
- * if the user is already selected -> remove d
+ * if the user is already selected -> remove
  */
 function removeUser(name) {
     const index = usersAssignedTo.indexOf(name);
