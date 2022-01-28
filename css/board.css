@@ -47,6 +47,7 @@ img {
     border-radius: 5px;
     margin-bottom: 16px;
     background-color: rgba(0, 0, 0, 0.05);
+    width: 80%;
 }
 
 .backlogDetail__container:hover {

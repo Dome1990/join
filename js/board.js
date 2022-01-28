@@ -42,13 +42,13 @@ function showTasks(task, container) {
     numberOfAssignedPeople(task );
     for (let i = 0; i < task.length; i++) {
         container.innerHTML += `
-     <div draggable="true" ondragstart="startDragging(${i})"  id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${task[i]['personalColor'][0]}">
+     <div draggable="true" ondragstart="startDragging(${task[i]['id']})"  id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${task[i]['personalColor'][0]}">
          <div class="left__container">
          <div class="img__container">
               <img src=${task[i]['img'][0]} alt="./img/user.png ">
          </div>
          <div class="assignedTo "title="${task[i]['assignedTo']}">
-             <p id="email" class="blue">${task[i]['email'][0]}</p>
+             <p id="name" >${task[i]['assignedTo'][0]}  ${assignedPeople[i]}</p>
          </div>
      </div>
      <div class="category__container margin">
@@ -121,8 +121,8 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) { // ?
-    console.log(tasks)
-    tasks[currentDraggedElement]['status'] = category; // ?
+    var index = tasks.findIndex(obj => obj.id== currentDraggedElement);
+    tasks[index]['status'] = category; // ?
     updateStatusToBoard();
 
 }
