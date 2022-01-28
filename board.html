@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/board.css">
-    <script src="js/board.js"></script>
+    <script src="js/mini_backend.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/addTask.js"></script>
+
     <title>Board</title>
 </head>
 
@@ -22,7 +25,7 @@
                 <h2>TO DO</h2>
             </div>
             <div class="board-backround" ondrop="moveTo('todo')" ondragover="allowDrop(event)" id="todo">
-                <div id="tasks"></div>
+                <div id="todo__container"></div>
             </div>
         </div>
 
@@ -31,7 +34,7 @@
                 <h2>IN PROGRESS</h2>
             </div>
             <div class="board-backround" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)" id="inProgress">
-                <div id="tasks"></div>
+                <div id="inProgress__container"></div>
             </div>
         </div>
 
@@ -39,8 +42,8 @@
             <div>
                 <h2>TESTING</h2>
             </div>
-            <div class="board-backround" ondrop="moveTo('testing')" ondragover="allowDrop(event)" id="testing" id="testing">
-                <div id="tasks"></div>
+            <div class="board-backround" ondrop="moveTo('testing')" ondragover="allowDrop(event)" id="testing">
+                <div id="testing__container"></div>
             </div>
         </div>
 
@@ -48,8 +51,8 @@
             <div>
                 <h2>DONE</h2>
             </div>
-            <div class="board-backround" ondrop="moveTo('done')" ondragover="allowDrop(event)" id="done" id="done">
-                <div id="tasks"></div>
+            <div class="board-backround" ondrop="moveTo('done')" ondragover="allowDrop(event)" id="done">
+                <div id="done__container"></div>
             </div>
         </div>
 

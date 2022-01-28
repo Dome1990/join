@@ -1,4 +1,4 @@
-let todoStatus = "todo";
+let todoStatus = 'todo';
 let todo = [];
 let inProgressStatus = "inProgress";
 let inProgress = [];
@@ -14,8 +14,8 @@ function init() {
     filterTasksForToDo();
 }
 
-function filterTasksForToDo() {
-    loadTasks();
+async function filterTasksForToDo() {
+    await loadTasks();
     if (window.localStorage.length != 0) {
         todo = tasks.filter(d => d.status === todoStatus);
         showTasksInToDo(todo);
@@ -25,10 +25,9 @@ function filterTasksForToDo() {
 function showTasksInToDo(todo) {
     numberOfAssignedPeople(todo);
     for (let i = 0; i < todo.length; i++) {
-        document.getElementById('tasks').innerHTML += `
-     <div draggable="true" ondragstart="startDragging(${todo})" onclick="updateStatusToBoard(${todo[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue">
+        document.getElementById('todo__container').innerHTML += `
+     <div draggable="true" ondragstart="startDragging(${i})" onclick="updateStatusToBoard(${todo[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${todo[i]['personalColor'][0]}">
          <div class="left__container">
-              <span  class="personalColor" style="background-color:${todo[i]['personalColor'][0]}"></span>
          <div class="img__container">
               <img src=${todo[i]['img'][0]} alt="./img/user.png ">
          </div>
@@ -46,6 +45,9 @@ function showTasksInToDo(todo) {
     }
 }
 
+
+
+
 function numberOfAssignedPeople(todo) {
     for (let i = 0; i < todo.length; i++) {
         if (todo[i]['assignedTo'].length > 1) {
@@ -62,10 +64,29 @@ function numberOfAssignedPeople(todo) {
 
 
 function updateStatusToBoard(id) {
-    document.getElementById('tasks').innerHTML = "";
+
+    document.getElementById('todo__container').innerHTML = "";
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i]['id'] === id) {
             tasks[i]['status'] = 'todo';
+        }
+    }
+    document.getElementById('inProgress__container').innerHTML = "";
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i]['id'] === id) {
+            tasks[i]['status'] = 'inProgress';
+        }
+    }
+    document.getElementById('testing__container').innerHTML = "";
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i]['id'] === id) {
+            tasks[i]['status'] = 'testing';
+        }
+    }
+    document.getElementById('done__container').innerHTML = "";
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i]['id'] === id) {
+            tasks[i]['status'] = 'done';
         }
     }
     saveTasks();
@@ -84,6 +105,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) { // ?
-    todo[currentDraggedElement]['category'] = category; // ?
+    todo[currentDraggedElement]['status'] = category; // ?
+    updateStatusToBoard();
 
 }

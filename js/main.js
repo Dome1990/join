@@ -48,10 +48,6 @@ async function loadTasks() {
  * #######################################################################
  */
 
-
-/**
- * save and load functions for local storage
- */
 // function saveTasks() {
 //     let tasksAsString = JSON.stringify(tasks);
 //     localStorage.setItem('tasks', tasksAsString);
