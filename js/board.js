@@ -16,22 +16,22 @@ function init() {
 
 async function filterTasks() {
     await loadTasks();
-    if (window.localStorage.length != 0) {
+    if (tasks.length != 0) {
         todo = tasks.filter(d => d.status === todoStatus);
         let container1 = document.getElementById('todo__container');
         showTasks(todo, container1);
     }
-    if (window.localStorage.length != 0) {
+    if (tasks.length != 0) {
         inProgress = tasks.filter(d => d.status === inProgressStatus);
         let container2 = document.getElementById('inProgress__container');
         showTasks(inProgress, container2);
     }
-    if (window.localStorage.length != 0) {
+    if (tasks.length != 0) {
         testing = tasks.filter(d => d.status === testingStatus);
         let container3 = document.getElementById('testing__container');
         showTasks(testing, container3);
     }
-    if (window.localStorage.length != 0) {
+    if (tasks.length != 0) {
         done = tasks.filter(d => d.status === doneStatus);
         let container4 = document.getElementById('done__container');
         showTasks(done, container4);
