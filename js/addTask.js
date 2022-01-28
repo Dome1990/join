@@ -163,7 +163,7 @@ function addSelectedUser(name) {
     else {
         removeUser(name);
     }
-renderUserImages();
+    renderUserImages();
 }
 
 function notSelected(name) {
@@ -186,7 +186,7 @@ function removeUser(name) {
     showSelectionList();
 }
 
-function renderUserImages(){
+function renderUserImages() {
     let userImgList = document.getElementById('selectedUserImages');
     userImgList.innerHTML = '';
     for (let i = 0; i < usersAssignedTo.length; i++) {
@@ -211,10 +211,6 @@ function renderUserImages(){
 
 
 
-
-
-
-
 function addTask() {
     if (!tasks) {
         tasks = [];
@@ -230,53 +226,9 @@ function addTask() {
     let personalColor = [];
 
     if (usersAssignedTo.length > 0) {
-        /**
-         * push img path of user in img array
-         */
-        for (let i = 0; i < usersAssignedTo.length; i++) {
-            let name = usersAssignedTo[i];
-            for (let j = 0; j < userjson.length; j++) {
-                let userName = userjson[j].name;
-                if (name == userName) {
-                    if (userjson[j].img) {
-                        img.push(userjson[j].img);
-                    }
-                    else {
-                        img.push("img/user.png");
-                    }
-                }
-            }
-        }
-
-        /**
-         * push mail in email array
-         */
-        for (let i = 0; i < usersAssignedTo.length; i++) {
-            let name = usersAssignedTo[i];
-            for (let j = 0; j < userjson.length; j++) {
-                let userName = userjson[j].name;
-                if (name == userName) {
-                    if (userjson[j].email) {
-                        email.push(userjson[j].email);
-                    }
-                }
-            }
-        }
-
-        /**
-         * push personalColor
-         */
-        for (let i = 0; i < usersAssignedTo.length; i++) {
-            let name = usersAssignedTo[i];
-            for (let j = 0; j < userjson.length; j++) {
-                let userName = userjson[j].name;
-                if (name == userName) {
-                    if (userjson[j].personalColor) {
-                        personalColor.push(userjson[j].personalColor);
-                    }
-                }
-            }
-        }
+        pushImg(img);
+        pushMail(email);
+        pushColor(personalColor);
 
         let newTask = {
             'title': title.value,
@@ -296,9 +248,60 @@ function addTask() {
         loadTasks();
         alert('Task has been created');
     }
+}
 
-    else {
-        alert('Please assign your task to someone')
+
+/**
+* push img path of user in img array
+*/
+function pushImg(img) {
+    for (let i = 0; i < usersAssignedTo.length; i++) {
+        let name = usersAssignedTo[i];
+        for (let j = 0; j < userjson.length; j++) {
+            let userName = userjson[j].name;
+            if (name == userName) {
+                if (userjson[j].img) {
+                    return img.push(userjson[j].img);
+                }
+                else {
+                    return img.push("img/user.png");
+                }
+            }
+        }
+    }
+}
+
+/**
+* push mail in email array
+*/
+function pushMail(email) {
+    for (let i = 0; i < usersAssignedTo.length; i++) {
+        let name = usersAssignedTo[i];
+        for (let j = 0; j < userjson.length; j++) {
+            let userName = userjson[j].name;
+            if (name == userName) {
+                if (userjson[j].email) {
+                    email.push(userjson[j].email);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * push personalColor
+ */
+function pushColor(personalColor) {
+    for (let i = 0; i < usersAssignedTo.length; i++) {
+        let name = usersAssignedTo[i];
+        for (let j = 0; j < userjson.length; j++) {
+            let userName = userjson[j].name;
+            if (name == userName) {
+                if (userjson[j].personalColor) {
+                    personalColor.push(userjson[j].personalColor);
+                }
+            }
+        }
     }
 }
 
