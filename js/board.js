@@ -11,35 +11,51 @@ let plus = [];
 let assignedPeople = [];
 
 function init() {
-    filterTasksForToDo();
+    filterTasks();
 }
 
-async function filterTasksForToDo() {
+async function filterTasks() {
     await loadTasks();
     if (window.localStorage.length != 0) {
         todo = tasks.filter(d => d.status === todoStatus);
-        showTasksInToDo(todo);
+        let container1 = document.getElementById('todo__container');
+        showTasks(todo, container1);
+    }
+    if (window.localStorage.length != 0) {
+        inProgress = tasks.filter(d => d.status === inProgressStatus);
+        let container2 = document.getElementById('inProgress__container');
+        showTasks(inProgress, container2);
+    }
+    if (window.localStorage.length != 0) {
+        testing = tasks.filter(d => d.status === testingStatus);
+        let container3 = document.getElementById('testing__container');
+        showTasks(testing, container3);
+    }
+    if (window.localStorage.length != 0) {
+        done = tasks.filter(d => d.status === doneStatus);
+        let container4 = document.getElementById('done__container');
+        showTasks(done, container4);
     }
 }
 
-function showTasksInToDo(todo) {
-    numberOfAssignedPeople(todo);
-    for (let i = 0; i < todo.length; i++) {
-        document.getElementById('todo__container').innerHTML += `
-     <div draggable="true" ondragstart="startDragging(${i})" onclick="updateStatusToBoard(${todo[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${todo[i]['personalColor'][0]}">
+function showTasks(task, container) {
+    numberOfAssignedPeople(task );
+    for (let i = 0; i < task.length; i++) {
+        container.innerHTML += `
+     <div draggable="true" ondragstart="startDragging(${i})"  id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${task[i]['personalColor'][0]}">
          <div class="left__container">
          <div class="img__container">
-              <img src=${todo[i]['img'][0]} alt="./img/user.png ">
+              <img src=${task[i]['img'][0]} alt="./img/user.png ">
          </div>
-         <div class="assignedTo "title="${todo[i]['assignedTo']}">
-             <p id="email" class="blue">${todo[i]['email'][0]}</p>
+         <div class="assignedTo "title="${task[i]['assignedTo']}">
+             <p id="email" class="blue">${task[i]['email'][0]}</p>
          </div>
      </div>
      <div class="category__container margin">
-         <p>${todo[i]['category']}</p>
+         <p>${task[i]['category']}</p>
      </div>
      <div class="details__container">
-         <p>${todo[i]['description']}</p>
+         <p>${task[i]['description']}</p>
       </div>
       `;
     }
@@ -48,10 +64,10 @@ function showTasksInToDo(todo) {
 
 
 
-function numberOfAssignedPeople(todo) {
-    for (let i = 0; i < todo.length; i++) {
-        if (todo[i]['assignedTo'].length > 1) {
-            assignedPeople[i] = todo[i]['assignedTo'].length - 1;
+function numberOfAssignedPeople(task) {
+    for (let i = 0; i < task.length; i++) {
+        if (task[i]['assignedTo'].length > 1) {
+            assignedPeople[i] = task[i]['assignedTo'].length - 1;
             plus[i] = "+ ";
         } else {
             assignedPeople[i] = "";
@@ -90,7 +106,7 @@ function updateStatusToBoard(id) {
         }
     }
     saveTasks();
-    filterTasksForToDo();
+    filterTasks();
 }
 
 
@@ -105,7 +121,8 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) { // ?
-    todo[currentDraggedElement]['status'] = category; // ?
+    console.log(tasks)
+    tasks[currentDraggedElement]['status'] = category; // ?
     updateStatusToBoard();
 
 }
