@@ -149,6 +149,9 @@ function hideUserlist(userList) {
 }
 
 
+
+
+
 /**
  * will push an User to the usersAssignedTo array and render an image of the user in the HTML
  * @param {string} name the name of the selected user
@@ -173,7 +176,7 @@ function selectUser(name) {
     showSelectionList();
 }
 /**
- * if the user is already selected -> remove
+ * if the user is already selected -> remove d
  */
 function removeUser(name) {
     const index = usersAssignedTo.indexOf(name);
@@ -182,8 +185,6 @@ function removeUser(name) {
     }
     showSelectionList();
 }
-
-
 
 function renderUserImages(){
     let userImgList = document.getElementById('selectedUserImages');
@@ -207,6 +208,9 @@ function renderUserImages(){
         }
     }
 }
+
+
+
 
 
 
