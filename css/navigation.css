@@ -74,6 +74,10 @@ body {
         flex-direction: column;
     }
 
+    .flex{
+        flex-direction: column;
+    }
+
     .navbar {
         height: 16vh !important;
         width: 100vw !important;
