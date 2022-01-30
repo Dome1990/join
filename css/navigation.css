@@ -20,7 +20,7 @@ body {
     margin-bottom: 80px;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
@@ -46,7 +46,7 @@ body {
     display: flex;
     position: absolute;
     justify-content: center;
-    bottom: 50px;
+    bottom: 100px;
     left: 50px;
 }
 
@@ -57,12 +57,10 @@ body {
     object-fit: cover;
 }
 
-
 @media (max-width: 750px) {
     .tasksDiv {
         flex-direction: column;
     }
-
     .section {
         width: unset;
     }
@@ -73,28 +71,23 @@ body {
         overflow-x: hidden;
         flex-direction: column;
     }
-
-    .flex{
+    .flex {
         flex-direction: column;
     }
-
     .navbar {
         height: 16vh !important;
         width: 100vw !important;
         flex-direction: row !important;
         padding: 6px !important;
     }
-
     .navbar-links {
         width: 70%;
         display: flex;
     }
-
     .navbar-links a {
         margin-bottom: unset !important;
         padding-left: unset !important;
     }
-
     .links {
         /* display: flex; */
         flex-direction: row !important;
@@ -103,7 +96,6 @@ body {
         justify-content: space-evenly !important;
         width: 100%;
     }
-
     .user {
         display: flex;
         position: unset !important;
@@ -117,8 +109,25 @@ body {
     .user {
         display: none !important;
     }
-
     .navbar-links {
         width: 70%;
     }
+}
+
+.navbar-links-unten {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.navbar-links-unten a {
+    color: rgba(187, 189, 205, 255);
+    text-decoration: none;
+    padding-left: 30px;
+}
+
+.navbar-links-unten a:hover {
+    color: rgba(245, 246, 250, 255);
 }
