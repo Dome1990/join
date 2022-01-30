@@ -33,17 +33,12 @@ function includeHTML() {
  */
 setURL('http://gruppe-153.developerakademie.net/smallest_backend_ever');
 
-/**
- * save the tasks array as a string in beckend
- */
+
 async function saveTasks() {
   // users.push('John');
   await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
-/**
- * load the tasks string and parse it
- */
 async function loadTasks() {
   await downloadFromServer();
   tasks = JSON.parse(backend.getItem('tasks')) || [];

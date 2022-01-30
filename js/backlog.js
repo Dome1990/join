@@ -21,12 +21,13 @@ async function filterTasksForBacklog() {
 
 /**
  * displays the task in backlog
- */
+ */      
+
 
 function showTasksInBacklog(backlog) {
     numberOfAssignedPeople(backlog);
     if(backlog.length == 0){
-        document.getElementById('tasks').innerHTML = `<p>No task to show. Please add some task in "add task". If you need help, then change to "help".</p>`;
+        document.getElementById('tasks').innerHTML = `<p>No task to show. Please add some task in  <a href="addTask.html">Add Task</a>. If you need help, then change to  <a href="help.html">Help</a>.</p>`;
     }else{
         for (let i = 0; i < backlog.length; i++) {
             document.getElementById('tasks').innerHTML += `
@@ -49,8 +50,12 @@ function showTasksInBacklog(backlog) {
              <p>${backlog[i]['description']}</p>
           </div>
           <div class="button__container" >
-                <p id="delete__button" class="buttons button__size" onclick="deleteTask(${backlog[i]['id']})">Delete Task</p>
-                <p id="toBoard__button" class="buttons button__size" onclick="updateStatusToBoard(${backlog[i]['id']})">Update to Board</p>
+                <div id="delete__button" class="buttons button__size" onclick="deleteTask(${backlog[i]['id']})" titel="delete">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+                <div id="toBoard__button" class="buttons button__size" onclick="updateStatusToBoard(${backlog[i]['id']})" titel="Update to Board">
+                    <i class="fas fa-share-square"></i>
+                </div>
           </div>
      </div>`;
         }  
