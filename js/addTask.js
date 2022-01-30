@@ -68,15 +68,18 @@ function showSelectionList() {
 }
 
 
-
+/**
+ * @param {String} name Name of an user from the userjason array
+ * @returns true if the username is in the users AssignedTo array.
+ */
 function userAlreadySelected(name) {
     return usersAssignedTo.includes(name['name']);
 }
 
 /**
- * if the user is already selected for the task, the checkbox will be rendered selected
- * @param {*} name 
- * @param {*} userAvailable 
+ * if the user is already selected for the task, the checkbox of the user will be rendered selected
+ * @param {String} name Name of an user from the userjason array
+ * @param {Element} userAvailable - the element 'selectUser'
  */
 function renderCheckedUser(name, userAvailable) {
     userAvailable.innerHTML +=
@@ -90,8 +93,8 @@ function renderCheckedUser(name, userAvailable) {
 
 /**
  * if the user is not selected for the task, the checkbox will be rendered unselected
- * @param {*} name 
- * @param {*} userAvailable 
+ * @param {String} name Name of an user from the userjason array
+ * @param {Element} userAvailable - the element 'selectUser'
  */
 
 function renderUnselected(name, userAvailable) {
@@ -122,8 +125,8 @@ function openAndCloseDropdownlist() {
 
 /**
  * 
- * @param {*} userListHeight 
- * @param {*} userList 
+ * @param {height} userListHeight 
+ * @param {Element} userList id='selectUser'
  * @returns if the userlist hight is 0
  */
 function userlistHeight0(userListHeight, userList) {
@@ -132,7 +135,7 @@ function userlistHeight0(userListHeight, userList) {
 
 /**
  * will give the userlist a hight of 110px
- * @param {*} userList 
+ * @param {Element} userList id='selectUser'
  */
 function openUserlist(userList) {
     userList.classList.toggle('dNone');
@@ -141,6 +144,10 @@ function openUserlist(userList) {
     }, 10);
 }
 
+/**
+ * will give the userlist a hight of 0 and toggle dNone afte 100ms
+ * @param {Element} userList id='selectUser'
+ */
 function hideUserlist(userList) {
     userList.style.height = '0';
     setTimeout(() => {
@@ -166,10 +173,19 @@ function addSelectedUser(name) {
     renderUserImages();
 }
 
+/**
+ * 
+ * @param {String} name name of the selected user
+ * @returns true if the user is not selected
+ */
 function notSelected(name) {
     return !usersAssignedTo.includes(name)
 }
 
+/**
+ * 
+ * @param {String} name name of the selected user
+ */
 function selectUser(name) {
     usersAssignedTo.push(name);
     document.getElementById('checkUser').value += name;
@@ -177,6 +193,7 @@ function selectUser(name) {
 }
 /**
  * if the user is already selected -> remove
+ * @param {*} name 
  */
 function removeUser(name) {
     const index = usersAssignedTo.indexOf(name);
@@ -186,25 +203,51 @@ function removeUser(name) {
     showSelectionList();
 }
 
+/**
+ * render the user images when selected
+ */
 function renderUserImages() {
     let userImgList = document.getElementById('selectedUserImages');
     userImgList.innerHTML = '';
     for (let i = 0; i < usersAssignedTo.length; i++) {
         let name = usersAssignedTo[i];
         for (let j = 0; j < userjson.length; j++) {
-            let userName = userjson[j].name;
-            if (name == userName) {
-                if (userjson[j].img) {
-                    userImgList.innerHTML += `
-                <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}"  title="${name}" alt=""></div>
-                `;
-                }
-                else {
-                    userImgList.innerHTML += `
-                    <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" title="${name}" alt=""></div>
-                    `;
-                }
-            }
+            // let userName = userjson[j].name;
+            selectAndRenderImg(name, userImgList, j);
+            // if (name == userName) {
+            //     if (userjson[j].img) {
+            //         userImgList.innerHTML += `
+            //     <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}"  title="${name}" alt=""></div>
+            //     `;
+            //     }
+            //     else {
+            //         userImgList.innerHTML += `
+            //         <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" title="${name}" alt=""></div>
+            //         `;
+            //     }
+            // }
+        }
+    }
+}
+
+/**
+ * if the user have an image it will be rendered, otherwise the user will get an standard picture
+ * @param {String} name - name of the selected user
+ * @param {Element} userImgList id='selectedUserImages'
+ * @param {Number} j number of the for-loop
+ */
+function selectAndRenderImg(name, userImgList, j) {
+    let userName = userjson[j].name;
+    if (name == userName) {
+        if (userjson[j].img) {
+            userImgList.innerHTML += `
+        <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}"  title="${name}" alt=""></div>
+        `;
+        }
+        else {
+            userImgList.innerHTML += `
+            <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" title="${name}" alt=""></div>
+            `;
         }
     }
 }
@@ -246,13 +289,18 @@ function addTask() {
         tasks.push(newTask);
         saveTasks();
         loadTasks();
-        window.open('backlog.html', '_self');
+        // window.open('/backlog.html', '_self');
+        linkToBacklog();
     }
 }
 
+function linkToBacklog(){
+    window.open('/backlog.html', '_self');
+}
 
 /**
 * push img path of user in img array
+* @param {Array} img 
 */
 function pushImg(img) {
     for (let i = 0; i < usersAssignedTo.length; i++) {
@@ -261,10 +309,10 @@ function pushImg(img) {
             let userName = userjson[j].name;
             if (name == userName) {
                 if (userjson[j].img) {
-                    return img.push(userjson[j].img);
+                    img.push(userjson[j].img);
                 }
                 else {
-                    return img.push("img/user.png");
+                    img.push("img/user.png");
                 }
             }
         }
@@ -272,8 +320,9 @@ function pushImg(img) {
 }
 
 /**
-* push mail in email array
-*/
+ * push mail in email array
+ * @param {Array} email 
+ */
 function pushMail(email) {
     for (let i = 0; i < usersAssignedTo.length; i++) {
         let name = usersAssignedTo[i];
@@ -290,6 +339,7 @@ function pushMail(email) {
 
 /**
  * push personalColor
+ * @param {Array} personalColor 
  */
 function pushColor(personalColor) {
     for (let i = 0; i < usersAssignedTo.length; i++) {
@@ -305,6 +355,9 @@ function pushColor(personalColor) {
     }
 }
 
+/**
+ * clear form, set a new date, clear userAssignedTo array
+ */
 function clearForm() {
     usersAssignedTo = [];
     let userImgList = document.getElementById('selectedUserImages');
