@@ -245,6 +245,10 @@ h5 {
 }
 
 @media (max-width: 750px) {
+    .widthMax {
+        width: -webkit-fill-available;
+    }
+
     .tasksDiv {
         flex-direction: column;
     }
@@ -252,8 +256,9 @@ h5 {
     .section {
         width: unset;
     }
-    .createOrCancel{
+
+    .createOrCancel {
         align-items: center;
         justify-content: center;
-        }
+    }
 }

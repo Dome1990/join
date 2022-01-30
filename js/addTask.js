@@ -246,7 +246,7 @@ function addTask() {
         tasks.push(newTask);
         saveTasks();
         loadTasks();
-        alert('Task has been created');
+        window.open('backlog.html', '_self');
     }
 }
 

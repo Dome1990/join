@@ -19,10 +19,8 @@
 </head>
 
 <body onload="includeHTML();loadTasks();  pushDate()">
-    <div class="flex">
-        <div>
+    <div class="flex widthMax">
             <div w3-include-html="template/navigation.html"></div>
-        </div>
         <div class="contentDiv">
             <h2>Add Task</h2>
             <h5>Learning Management System Project</h5>
@@ -55,10 +53,11 @@
                             </div>
                             <div>
                                 <select required name="CATEGORY" id="category">
-                                    <option value=""></option>
                                     <option value="Management">Management</option>
                                     <option value="IT">IT</option>
                                     <option value="IT-Hardware">IT-Hardware</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                    <option value="Facility Utility">Facility Utility</option>
                                 </select>
                             </div>
                         </div>
@@ -68,7 +67,6 @@
                             </div>
                             <div>
                                 <select name="URGENCY" id="urgency">
-                                    <option value=""></option>
                                     <option value="low">Low</option>
                                     <option value="middle">Middle</option>
                                     <option value="high">High</option>
@@ -82,7 +80,7 @@
                                 <span class="taskName">DESCRIPTION</span>
                             </div>
                             <div>
-                                <textarea required id="description"></textarea>
+                                <textarea required id="description" placeholder="Description"></textarea>
                             </div>
                         </div>
                         <div class="section">
