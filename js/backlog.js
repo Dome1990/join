@@ -8,7 +8,9 @@ function init() {
 }
 
 
-
+/**
+ * filters the correct task with status = "backlog" and renders them in backlog
+ */
 async function filterTasksForBacklog() {
     await loadTasks();
     if (tasks.length != 0) {
@@ -17,7 +19,9 @@ async function filterTasksForBacklog() {
     }
 }
 
-
+/**
+ * displays the task in backlog
+ */
 
 function showTasksInBacklog(backlog) {
     numberOfAssignedPeople(backlog);
@@ -44,7 +48,9 @@ function showTasksInBacklog(backlog) {
  </div>`;
     }
 }
-
+/**
+ * counts number of assigned People and returns it as string
+ */
 function numberOfAssignedPeople(backlog) {
     for (let i = 0; i < backlog.length; i++) {
         if (backlog[i]['assignedTo'].length > 1) {
@@ -60,6 +66,9 @@ function numberOfAssignedPeople(backlog) {
 }
 
 
+/**
+ * 
+ */
 function updateStatusToBoard(id) {
     document.getElementById('tasks').innerHTML = "";
     for (let i = 0; i < tasks.length; i++) {
