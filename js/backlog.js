@@ -30,7 +30,7 @@ function showTasksInBacklog(backlog) {
     }else{
         for (let i = 0; i < backlog.length; i++) {
             document.getElementById('tasks').innerHTML += `
-         <div onclick="updateStatusToBoard(${backlog[i]['id']})" id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${backlog[i]['personalColor'][0]}">
+         <div  id="task${i}" class="backlogDetail__container background__lightblue" style="border-left:16px solid ${backlog[i]['personalColor'][0]}">
              <div id="mobile__left__container">
             <div class="left__container">
                  <div class="img__container">
@@ -47,6 +47,10 @@ function showTasksInBacklog(backlog) {
          </div>
          <div class="details__container">
              <p>${backlog[i]['description']}</p>
+          </div>
+          <div class="button__container" >
+                <p id="delete__button" class="buttons button__size" onclick="deleteTask(${backlog[i]['id']})">Delete Task</p>
+                <p id="toBoard__button" class="buttons button__size" onclick="updateStatusToBoard(${backlog[i]['id']})">Update to Board</p>
           </div>
      </div>`;
         }  
@@ -83,5 +87,18 @@ function updateStatusToBoard(id) {
     }
     saveTasks();
     filterTasksForBacklog();
+}
 
+/**
+ * deletes a task with onclick
+ */
+function deleteTask(id){
+    document.getElementById('tasks').innerHTML = "";
+    for (let i = 0; i < tasks.length; i++) {
+        if(tasks[i]['id'] === id){
+            tasks.splice(i,1);
+        } 
+    }
+    saveTasks();
+    filterTasksForBacklog();
 }
