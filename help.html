@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="./css/help.css">
     <script src="js/main.js"></script>
+    <script src="./js/help.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Help</title>
 </head>
+
 <body onload="includeHTML()">
-    <div>
+
+    <div class="help">
         <div w3-include-html="template/navigation.html"></div>
+
+        <div class="sectionHelp">
+            <div id="divHead" class="divHead" onclick="showSection('1')">
+                <span>Add Task</span>
+                <img id="chevron1" class="chevron" src="./img/chevron .png" alt="">
+            </div>
+            <div id="description1" class="description dNone">
+                <img src="./img/random.png" alt="placeholder">
+                <span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis accusamus, quae debitis ab
+                    sint est
+                    quisquam? Pariatur asperiores et molestias ducimus ea voluptate, incidunt aliquam magnam illo
+                    deleniti! Sint,
+                    quisquam. </span>
+            </div>
+        </div>
     </div>
-    <div>
-        A help section will be created soon
-    </div>
+
 </body>
+
 </html>
