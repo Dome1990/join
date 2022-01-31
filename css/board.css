@@ -131,3 +131,29 @@ img {
         padding-bottom: 10px;
     }
 }
+
+@media (max-width: 800px) {
+    .board {
+        display: flex;
+        flex-direction: column;
+    }
+    .board-backround {
+        width: 300px;
+        margin-left: 50px;
+        height: 300px;
+        min-height: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .board {
+        display: flex;
+        flex-direction: column;
+    }
+    .board-backround {
+        width: 200px;
+        margin-left: 50px;
+        height: 300px;
+        min-height: 0;
+    }
+}
