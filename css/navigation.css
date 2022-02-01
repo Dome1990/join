@@ -3,6 +3,10 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
+footer {
+
+}
+
 .navbar {
     background-color: rgba(28, 45, 146, 255);
     display: flex;
@@ -84,6 +88,11 @@ body {
         width: 70%;
         display: flex;
     }
+
+    .navbar-links-unten {
+        display: none !important;
+    }
+
     .navbar-links a {
         margin-bottom: unset !important;
         padding-left: unset !important;
