@@ -40,10 +40,12 @@ footer {
     margin-bottom: 20px;
     padding-left: 40px;
     /* noch Ändern! */
+    transition: all ease-in-out 255ms;
 }
 
 .navbar-links a:hover {
     color: rgba(245, 246, 250, 255);
+    transform: scale(1.01);
 }
 
 .user {
