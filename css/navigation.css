@@ -3,10 +3,6 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
-footer {
-
-}
-
 .navbar {
     background-color: rgba(28, 45, 146, 255);
     display: flex;

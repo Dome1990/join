@@ -289,7 +289,6 @@ function addTask() {
         tasks.push(newTask);
         saveTasks();
         loadTasks();
-        // window.open('/backlog.html', '_self');
         linkToBacklog();
     }
 }
