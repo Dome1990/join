@@ -31,7 +31,7 @@ function openDescription(chevron, section) {
     section.classList.toggle('dNone');
     section.style.height = '0';
     setTimeout(() => {
-        section.style.height = '200px';
+        section.style.height = 'fit-content';
         chevron.style.transform = 'rotate(180deg)'
     }, 10);
 }
