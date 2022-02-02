@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .divHead span {
@@ -50,3 +51,4 @@
 .dNone{
     display: none;
 }
+
