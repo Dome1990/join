@@ -1,5 +1,16 @@
+h1 {
+    margin-left: 6px;
+}
+
 .help {
     display: flex;
+}
+
+.sections{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 16px;
 }
 
 .sectionHelp {
