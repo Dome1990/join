@@ -212,20 +212,7 @@ function renderUserImages() {
     for (let i = 0; i < usersAssignedTo.length; i++) {
         let name = usersAssignedTo[i];
         for (let j = 0; j < userjson.length; j++) {
-            // let userName = userjson[j].name;
             selectAndRenderImg(name, userImgList, j);
-            // if (name == userName) {
-            //     if (userjson[j].img) {
-            //         userImgList.innerHTML += `
-            //     <div onclick="addSelectedUser('${name}')"><img class="userImg" src="${userjson[j].img}"  title="${name}" alt=""></div>
-            //     `;
-            //     }
-            //     else {
-            //         userImgList.innerHTML += `
-            //         <div onclick="addSelectedUser('${name}')"><img class="userImg" src="img/user.png" title="${name}" alt=""></div>
-            //         `;
-            //     }
-            // }
         }
     }
 }
@@ -288,13 +275,7 @@ function addTask() {
         }
         tasks.push(newTask);
         saveTasks();
-        loadTasks();
-        linkToBacklog();
     }
-}
-
-function linkToBacklog(){
-    window.open('/backlog.html', '_self');
 }
 
 /**
