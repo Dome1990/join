@@ -27,7 +27,6 @@ async function filterTasksForBacklog() {
 function showTasksInBacklog(backlog) {
     numberOfAssignedPeople(backlog);
     if(backlog.length == 0){
-        console.log("hallo")
         document.getElementById('tasks').innerHTML = `<p>No task to show. Please add some task in <a href="addTask.html">Add Task</a>
         . If you need help, then change to <a href="help.html">Help</a> .</p>`;
     }else{
