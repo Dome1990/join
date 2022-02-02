@@ -1,10 +1,9 @@
-function init() {
-    loadTasks();
+async function init() {
+    await loadTasks()
     showTasks();
 }
 
 function showTasks() {
-
     document.getElementById('todo__container').innerHTML = "";
     document.getElementById('inProgress__container').innerHTML = "";
     document.getElementById('testing__container').innerHTML = "";
@@ -100,12 +99,12 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) { // ?
+async function moveTo(category) { // ?
     for (let i = 0; i < tasks.length; i++){
         if (tasks[i]['id'] == currentDraggedElement){
             tasks[i]['status'] = category;
         }
     }
-    saveTasks();
+    await saveTasks();
     init();
 }
