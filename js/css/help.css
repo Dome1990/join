@@ -1,0 +1,52 @@
+.help {
+    display: flex;
+}
+
+.sectionHelp {
+    padding: 20px;
+    margin: 8px;
+    background-color: rgb(244, 243, 251);
+    border-radius: 6px;
+    width: 100%;
+    height: fit-content;
+}
+
+.description img {
+    height: 200px;
+    object-fit: cover;
+}
+.divHead {
+    display: flex;
+    padding: 0px 10px 0px 10px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.divHead span {
+    font-weight: bold;
+}
+
+.description{
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    height: fit-content;
+    transition: all ease-in-out 255ms;
+}
+
+.chevron {
+    transition: all ease-in-out 255ms;
+}
+
+.hide{
+    height: 0 !important;
+}
+
+.description img {
+    padding-right: 12px;
+}
+
+.dNone{
+    display: none;
+}
