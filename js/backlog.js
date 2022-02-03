@@ -3,6 +3,10 @@ let assignedPeople = [];
 let backlog = [];
 let plus = [];
 
+
+/**
+ * load the tasks from JSON and renders the tasks in backlog
+ */
 function init() {
     filterTasksForBacklog();
 }
@@ -19,11 +23,10 @@ async function filterTasksForBacklog() {
     }
 }
 
+
 /**
  * displays the task in backlog
  */      
-
-
 function showTasksInBacklog(backlog) {
     numberOfAssignedPeople(backlog);
     if(backlog.length == 0){
@@ -56,15 +59,14 @@ function showTasksInBacklog(backlog) {
                 </div>
                 <div id="delete__button" class="buttons button__size" onclick="deleteTask(${backlog[i]['id']})" title="delete">
                     <i class="fas fa-trash-alt fa-2x"></i>
-                </div>
-                
-                
+                </div>                           
           </div>
      </div>`;
         }  
-    }
-    
+    }   
 }
+
+
 /**
  * counts number of assigned People and returns it as string
  */
@@ -96,6 +98,7 @@ function updateStatusToBoard(id) {
     saveTasks();
     filterTasksForBacklog();
 }
+
 
 /**
  * deletes a task with onclick
