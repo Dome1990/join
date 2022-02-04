@@ -198,12 +198,11 @@ function allowDrop(ev) {
  * changes the status of the task
  * @param {String} category in wich column the div is dropped
  */
-async function moveTo(category) { // ?
+async function moveTo(category) {
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i]['id'] == currentDraggedElement) {
             tasks[i]['status'] = category;
         }
     }
     await saveTasks();
-    init();
-}
+    init();}
